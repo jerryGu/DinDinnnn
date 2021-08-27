@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DinDinn</string>
+    <string name="accept">Accept</string>
+    <string name="remove">Remove</string>
+    <string name="orderNo">#%s</string>
+    <string name="search">search an ingredient</string>
+</resources>

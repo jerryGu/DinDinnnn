@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.databinding.ObservableField" />
+
+        <import type="androidx.databinding.ObservableBoolean" />
+
+        <variable
+            name="orderId"
+            type="Integer" />
+
+        <variable
+            name="orderItems"
+            type="String" />
+
+        <variable
+            name="orderTime"
+            type="ObservableField&lt;String&gt;" />
+
+        <variable
+            name="orderFooter"
+            type="String" />
+
+        <variable
+            name="expired"
+            type="ObservableBoolean" />
+
+        <variable
+            name="vm"
+            type="com.example.dindinn.ui.main.vm.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp"
+        tools:context=".ui.main.MainFragment">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/orderNo(orderId)}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="#120" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{orderItems}"
+            android:textColor="@color/grey"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:text="ABCDEF\nssssss" />
+
+        <TextView
+            android:id="@+id/tv_footer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{orderFooter}"
+            android:textColor="@color/grey"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_content"
+            tools:text="3 items" />
+
+        <TextView
+            android:id="@+id/tv_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{orderTime}"
+            android:textColor="@color/grey"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="will expire at 10:15" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@{expired ? @color/grey: @color/purple_500}"
+            android:onClick="@{v -> vm.orderClicked(orderId, expired) }"
+            android:text="@{expired ? @string/remove : @string/accept}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
