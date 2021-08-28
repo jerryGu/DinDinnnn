@@ -21,8 +21,8 @@ Overall it is a data-driven app, The principle is to make UI reactive due to dat
 * Technologies
     * Hilt + Retrofit + Flow + LiveData
 * Layers
-    * Repository
     * API service (Retrofit2)
+    * Repository
     * ViewModel
     * Fragment + databinding
 
@@ -30,6 +30,6 @@ Overall it is a data-driven app, The principle is to make UI reactive due to dat
 ### Others
 * MVVM architecture. Here I tried Hilt as DI tool and looks it's a bit easier than Dagger.
 * I use Flow + LiveData instead of RxJava in order to just try the new technology.
-* Sorry that I wasn't able to spare time on unit test.
+* **Sorry that I wasn't able to spare time on unit test.**
       
   
